@@ -17,14 +17,17 @@ from selenium.webdriver.chrome.options import Options
 
 from pytube import Search
 
-URL = "https://open.spotify.com/playlist/1KXjpX2gpUy9Peap7wTSgu?si=82adfdac3c4540e0"
+load_dotenv()
+
+URL = os.getenv("URL")
+output_path = os.getenv("OUTPUT_FOLDER")
 
 TRACKLIST_CSS = 'div[role=grid][data-testid=playlist-tracklist].oIeuP60w1eYpFaXESRSg.oYS_3GP9pvVjqbFlh9tq > div[role=presentation].JUa6JJNj7R_Y3i4P8YUX > div[role=presentation][style="transform: translateY(0px);"]'
 
 songs = []
 size = 0
 
-output_path = "./Songs"
+
 
 def init_driver():
     options = Options()
